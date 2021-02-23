@@ -67,8 +67,8 @@ class AddCoords(base.Layer):
         yy_channel = tf.matmul(yy_range, yy_ones)               # e.g. (batch, 64, 64)
         yy_channel = tf.expand_dims(yy_channel, -1)             # e.g. (batch, 64, 64, 1)
 
-        xx_channel = tf.cast(xx_channel, 'float32') / (self.x_dim - 1)
-        yy_channel = tf.cast(yy_channel, 'float32') / (self.y_dim - 1)
+        xx_channel = tf.cast(xx_channel, 'float32') / (self.y_dim - 1)
+        yy_channel = tf.cast(yy_channel, 'float32') / (self.x_dim - 1)
         xx_channel = xx_channel*2 - 1                           # [-1,1]
         yy_channel = yy_channel*2 - 1
 
